@@ -1,23 +1,19 @@
 # Use an official Node runtime as a parent image
-FROM node:latest
+FROM node:lts
 
-# Set the working directory in the container
-WORKDIR /app
+# Reduce npm log spam and colour during install within Docker
+ENV NPM_CONFIG_LOGLEVEL=warn
+ENV NPM_CONFIG_COLOR=false
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
-
-# Install Docusaurus and its dependencies
+# We'll run the app as the `node` user, so put it in their home directory
+WORKDIR /home/node/app
+# Copy the source code over
+COPY --chown=node:node . /home/node/app/
+# Install (not ci) with dependencies, and for Linux vs. Linux Musl (which we use for -alpine)
 RUN npm install
-
-# Copy the rest of the application code to the working directory
-COPY . .
-
-# Build the Docusaurus project
-RUN npm run build
-
-# Expose the port that the Docusaurus development server will run on
+# Switch to the node user vs. root
+USER node
+# Expose port 3000
 EXPOSE 3000
-
-# Start the Docusaurus development server when the container starts
-CMD ["npm", "run", "start"]
+# Start the app in debug mode so we can attach the debugger
+CMD ["npm", "start"]
