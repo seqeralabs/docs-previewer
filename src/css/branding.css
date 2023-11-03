@@ -1,0 +1,153 @@
+/**********/
+/* FONTS */
+/********/
+
+:root {
+  --ifm-font-family-base: Inter, sans-serif;
+  --ifm-heading-font-family: Degular, sans-serif;
+}
+
+/***********/
+/* COLORS */
+/*********/
+
+:root {
+  --brand-100: #f3f3f4;
+  --brand-200: #e8e7e9;
+  --brand-300: #d0cfd4;
+  --brand-400: #b9b7be;
+  --brand-500: #a29fa8;
+  --brand-600: #8a8792;
+  --brand-700: #736f7d;
+  --brand-800: #5c5767;
+  --brand-900: #453f51;
+  --brand-1000: #2d273c;
+  --brand-1100: #160f26;
+  --brand-1200: #151121;
+  --brand-1300: #141024;
+  --brand-1400: #110d1d;
+
+  --blue: #4256e7;
+  --blue2: #3c95fd;
+}
+
+/****************/
+/* LIGHT THEME */
+/**************/
+
+html[data-theme="light"] {
+  /* General */
+  --ifm-background-color: white;
+  --ifm-breadcrumb-color-active: var(--blue);
+  --ifm-link-color: var(--blue);
+  --ifm-font-color-base: var(--brand-1100);
+
+  /* Navbar */
+  --ifm-background-surface-color: var(--brand-1100);
+  --ifm-navbar-link-color: white;
+  --ifm-navbar-link-hover-color: var(--blue2);
+  --ifm-dropdown-link-color: white;
+  & .navbar__items--right {
+    color: white;
+    & button:hover {
+      background-color: var(--blue);
+    }
+  }
+
+  /* Sidebar */
+  --ifm-menu-color-background-active: var(--blue);
+  --ifm-menu-color-background-hover: var(--brand-200);
+  --ifm-menu-color-active: white;
+  .menu__link.menu__link--sublist.menu__link--sublist-caret.menu__link--active {
+    background-color: var(--brand-200);
+    color: var(--brand-1400);
+  }
+  .menu__link--sublist-caret:after {
+    background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.4943 10.4038L7.7174 15.1615L7.16162 14.6057L12.4943 9.29225L17.8078 14.6057L17.252 15.1615L12.4943 10.4038Z' fill='%23160F26'/%3E%3C/svg%3E%0A");
+  }
+  .menu__list-item-collapsible--active {
+    background-color: var(--blue) !important;
+  }
+  .menu__list-item-collapsible > a.menu__link--active {
+    color: var(--brand-1400) !important;
+  }
+  .menu__list-item-collapsible--active > a.menu__link--active {
+    color: white !important;
+  }
+
+  /* Mobile nav */
+  .navbar-sidebar {
+    color: white;
+  }
+  .navbar-sidebar .menu__link {
+    color: white;
+  }
+  .navbar__toggle.clean-btn {
+    color: white;
+  }
+
+  /* Footer */
+  & .footer--dark {
+    --ifm-footer-background-color: var(--brand-1100);
+  }
+}
+
+/***************/
+/* DARK THEME */
+/*************/
+
+html[data-theme="dark"] {
+  /* General */
+  --ifm-background-color: var(--brand-1400);
+  --ifm-breadcrumb-color-active: var(--blue);
+  --ifm-link-color: var(--blue);
+  --ifm-font-color-base: white;
+
+  /* Tables */
+  --ifm-table-border-color: var(--brand-1000);
+  --ifm-table-stripe-background: var(--brand-1100);
+
+  /* Pagination */
+  .pagination-nav__link {
+    border-color: var(--brand-1000);
+    background: var(--brand-1100);
+  }
+  .pagination-nav__link:hover {
+    border-color: var(--blue);
+  }
+
+  /* Navbar */
+  --ifm-background-surface-color: var(--brand-1100);
+  --ifm-navbar-background-color: var(--brand-1100);
+  --ifm-navbar-link-color: white;
+  --ifm-navbar-link-hover-color: var(--blue2);
+  & .navbar__items--right {
+    color: white;
+    & button:hover {
+      background-color: var(--blue);
+    }
+  }
+
+  /* Breadcrumbs */
+  --ifm-breadcrumb-item-background-active: var(--brand-1100);
+
+  /* Sidebar */
+  --ifm-toc-border-color: var(--brand-1000);
+  --ifm-menu-color-background-active: var(--blue);
+  --ifm-menu-color-active: white;
+  --ifm-menu-color-background-hover: var(--brand-1100);
+  .menu__link.menu__link--sublist.menu__link--sublist-caret.menu__link--active {
+    color: var(--blue);
+  }
+  .menu__link--sublist-caret:after {
+    background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.4943 10.4038L7.7174 15.1615L7.16162 14.6057L12.4943 9.29225L17.8078 14.6057L17.252 15.1615L12.4943 10.4038Z' fill='%23160F26'/%3E%3C/svg%3E%0A");
+  }
+  .menu__list-item-collapsible > a.menu__link--active {
+    color: var(--blue) !important;
+  }
+
+  /* Footer */
+  & .footer--dark {
+    --ifm-footer-background-color: var(--brand-1100);
+  }
+}
