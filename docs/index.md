@@ -1,7 +1,7 @@
 ---
-title: "Test"
-description: "Test"
+title: "Placeholder"
+description: ""
 date: ""
 ---
 
-This is a test.
+The user's local /docs folder are be mounted and replace this one.

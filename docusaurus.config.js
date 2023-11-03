@@ -38,7 +38,7 @@ module.exports = async function createConfigAsync() {
         {
           docs: {
             routeBasePath: "/",
-            sidebarPath: undefined,
+            sidebarPath: "docs/sidebars.json",
             editUrl: "https://github.com/seqeralabs/docs/tree/master/",
             remarkPlugins: [(await import("remark-code-import")).default],
           },
@@ -64,7 +64,14 @@ module.exports = async function createConfigAsync() {
             src: "img/logo2-dark.png",
             srcDark: "img/logo2-dark.png",
           },
-          items: [],
+          items: [
+            {
+              type: "docSidebar",
+              sidebarId: "sidebar",
+              position: "left",
+              label: "Previewer",
+            },
+          ],
         },
         footer: {
           style: "dark",
