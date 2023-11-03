@@ -49,10 +49,6 @@ module.exports = async function createConfigAsync() {
               require.resolve("./src/css/fonts/degular.css"),
             ],
           },
-          gtag: {
-            trackingID: "G-NR1CNM213G",
-            anonymizeIP: true,
-          },
         },
       ],
     ],
