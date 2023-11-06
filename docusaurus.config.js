@@ -38,7 +38,7 @@ module.exports = async function createConfigAsync() {
         {
           docs: {
             routeBasePath: "/",
-            sidebarPath: "docs/sidebars.json",
+            sidebarPath: "docs/sidebar.json",
             editUrl: "https://github.com/seqeralabs/docs/tree/master/",
             remarkPlugins: [(await import("remark-code-import")).default],
           },
