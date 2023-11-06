@@ -11,6 +11,8 @@ WORKDIR /home/node/app
 COPY --chown=node:node . /home/node/app/
 # Install (not ci) with dependencies, and for Linux vs. Linux Musl (which we use for -alpine)
 RUN npm install
+# Fix permissions
+RUN chown -R node:node /home/node/app
 # Switch to the node user vs. root
 USER node
 # Expose port 3000
