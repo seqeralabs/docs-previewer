@@ -47,7 +47,6 @@ export default async function createConfigAsync() {
               require.resolve("./src/css/custom.css"),
               require.resolve("./src/css/branding.css"),
               require.resolve("./src/css/fonts/inter.css"),
-              require.resolve("./src/css/fonts/degular.css"),
             ],
           },
         },
