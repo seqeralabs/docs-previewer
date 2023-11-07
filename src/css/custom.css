@@ -1,0 +1,9 @@
+/* Center katex math */
+.katex-display,
+.katex-display > .katex {
+  text-align: left;
+}
+/* Adjust font size for certain equations */
+.katex .vlist .mord {
+  font-size: 0.9em;
+}
