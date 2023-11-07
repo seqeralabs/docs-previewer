@@ -1,10 +1,6 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+import { themes } from "prism-react-renderer";
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
-
-module.exports = async function createConfigAsync() {
+export default async function createConfigAsync() {
   return {
     title: "Docs Previewer",
     tagline: "Documentation for Seqera Labs products",
@@ -40,10 +36,15 @@ module.exports = async function createConfigAsync() {
             routeBasePath: "/",
             sidebarPath: "docs/sidebar.json",
             editUrl: "https://github.com/seqeralabs/docs/tree/master/",
-            remarkPlugins: [(await import("remark-code-import")).default],
+            remarkPlugins: [
+              (await import("remark-code-import")).default,
+              (await require("remark-math")).default,
+            ],
+            rehypePlugins: [(await require("rehype-katex")).default],
           },
           theme: {
             customCss: [
+              require.resolve("./src/css/custom.css"),
               require.resolve("./src/css/branding.css"),
               require.resolve("./src/css/fonts/inter.css"),
               require.resolve("./src/css/fonts/degular.css"),
@@ -53,36 +54,42 @@ module.exports = async function createConfigAsync() {
       ],
     ],
 
-    themeConfig:
-      /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-      ({
-        // Replace with your project's social card
-        image: "img/docusaurus-social-card.jpg",
-        navbar: {
-          logo: {
-            alt: "Seqera Docs Previewer",
-            src: "img/logo2-dark.png",
-            srcDark: "img/logo2-dark.png",
+    themeConfig: {
+      image: "img/share.jpg",
+      navbar: {
+        logo: {
+          alt: "Seqera Docs Previewer",
+          src: "img/logo2-dark.png",
+          srcDark: "img/logo2-dark.png",
+        },
+        items: [
+          {
+            type: "docSidebar",
+            sidebarId: "sidebar",
+            position: "left",
+            label: "Previewer",
           },
-          items: [
-            {
-              type: "docSidebar",
-              sidebarId: "sidebar",
-              position: "left",
-              label: "Previewer",
-            },
-          ],
-        },
-        footer: {
-          style: "dark",
-          links: [],
-          copyright: `${new Date().getFullYear()} © Seqera`,
-        },
-        prism: {
-          theme: lightCodeTheme,
-          darkTheme: darkCodeTheme,
-          additionalLanguages: ["json", "yaml"],
-        },
-      }),
+        ],
+      },
+      footer: {
+        style: "dark",
+        links: [],
+        copyright: `${new Date().getFullYear()} © Seqera`,
+      },
+      prism: {
+        theme: themes.duotoneLight,
+        darkTheme: themes.duotoneDark,
+        additionalLanguages: ["json", "yaml"],
+      },
+    },
+    stylesheets: [
+      {
+        href: "https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css",
+        type: "text/css",
+        integrity:
+          "sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X",
+        crossorigin: "anonymous",
+      },
+    ],
   };
-};
+}
