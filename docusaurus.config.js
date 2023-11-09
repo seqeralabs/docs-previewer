@@ -76,9 +76,19 @@ export default async function createConfigAsync() {
         copyright: `${new Date().getFullYear()} © Seqera`,
       },
       prism: {
-        theme: themes.duotoneLight,
-        darkTheme: themes.duotoneDark,
-        additionalLanguages: ["json", "yaml"],
+        theme: themes.oneLight,
+        darkTheme: themes.oneDark,
+        additionalLanguages: [
+          "json",
+          "yaml",
+          "groovy",
+          "ini",
+          "nginx",
+          "bash",
+          "docker",
+          "python",
+          "typescript",
+        ],
       },
     },
     stylesheets: [
