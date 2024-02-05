@@ -39,6 +39,7 @@ export default async function createConfigAsync() {
             remarkPlugins: [
               (await import("remark-code-import")).default,
               (await require("remark-math")).default,
+              (await require("remark-yaml-to-table")).default,
             ],
             rehypePlugins: [(await require("rehype-katex")).default],
           },
