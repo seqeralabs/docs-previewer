@@ -27,7 +27,8 @@
     "react-dom": "^18.2.0",
     "rehype-katex": "^7.0.0",
     "remark-code-import": "^1.2.0",
-    "remark-math": "^6.0.0"
+    "remark-math": "^6.0.0",
+    "remark-yaml-to-table": "github:seqeralabs/remark-yaml-to-table"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.0.0",
